@@ -1,0 +1,30 @@
+<div class="container">
+    <div *ngIf="blogContent">
+        <div class="blog-content">
+            <h2>{{blogContent.blog.title | titlecase}}</h2>
+            <h5>{{blogContent.blog.time | date:'MMMM d, y hh:mm:ss'}}</h5>
+            <pre class="blog-content-pre">{{blogContent.blog.message}}</pre>
+        </div>
+    
+        <label class="label-content" (click)="commentControl()">
+            <i class="material-icons">comment_bank</i>
+            Comments: {{getBlogComments().length}}</label>
+        <div *ngIf="control">
+            <div *ngFor="let comment of getBlogComments()">
+                <div class="container">
+                    <h5>{{comment.time | date:'MMMM d, y hh:mm:ss'}}</h5>
+                    <pre class="comments">{{comment.message}}</pre>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form [formGroup]="commentForm" (ngSubmit)="newComment()">
+                <div class="form-group">
+                    <label for="newComment">New comment</label>
+                    <textarea required class="form-control new-comment" formControlName="message" minlength="3"></textarea>
+                </div>
+                <button class="btn btn-primary" [disabled]="commentForm.invalid">Post</button>
+            </form>
+        </div>
+    </div> 
+</div>

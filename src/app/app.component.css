@@ -1,0 +1,32 @@
+.nav-container {
+    display: flex;
+    overflow: hidden;
+    background-color: rgb(252, 249, 249);
+}
+
+.navbar{
+    padding: 0 10px;
+    display: flex;
+}
+
+.logo {
+    display: block;
+    margin-left: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+    width: 100px;
+    height: 80px;  
+}
+
+.navbar-brand {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.navbar-brand:hover {
+    color: black;
+}
+
+.navbar-brand.selected {
+    color: black;
+}
